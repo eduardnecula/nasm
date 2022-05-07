@@ -1,0 +1,76 @@
+									~Tema2 IOCLA~
+
+Necula Eduard-Ionut 322 CA @2020
+
+Implemntari algoritmi: 
+
+1. One Time Pad
+2. Caesar Cipher
+3. Vigenere Cipher
+4. StrStr
+5. Binary to Hexadecimal
+
+									One Time Pad
+
+Despre:
+	Cifrul xoreaza un mesaj cu o cheie. Mesajul si cheia au acelasi mesaj. Se xoreaza caracter cu caracter. Rezulatul xorarii se pune intr-un alt sir.
+
+Implementare:
+	1) Se ia primul byte din mesaj, (aflat in registrul esi), si se pune in registrul bl.
+	2) Se ia  primul byte din cheie (aflat in registrul edi).
+	3) Valorile se xoreaza iar byteul rezultat se pune in registrul edx.
+	4) Se trece la urmatorul byte din edx.
+	4) Operatia se repeta pentru fiecare byte, cat timp lungimea sirului este diferita de 0.
+
+
+									Caesar Cipher
+
+Despre:
+	Cifrul caesar primeste un mesaj si o cheie. Fiecare litera din alfabet in parte se permuta de atatea ori precum in cheie. Rezultatul final se pune intr-un alt sir. Doar literele se permuta, nu si caracterele speciale. 
+
+Implementare: 
+
+	1) Se ia primul byte din mesaj (aflat in esi), si se pune in registrul bl.
+	2) Pentru fiecare byte in parte, se face un for care itereaza caracterul pana la lungimea cheii. (Aceasta solutie nu este foarte eficienta, puteam sa adun la caracterul meu valoarea de la cheie, insa n-am mai avut timp sa modific). 
+	3) Daca byte-ul meu este un caracter special trec la urmatorul caracter, iar caracterul special il afisez la ecran. 
+	4) Operatia se repeta pentru fiecare byte, cat timp lungimea sirului este diferita de 0.
+
+
+									Vigenere Cipher
+
+Despre: 
+	Cifrul Vigenere Cipher primeste un mesaj si o cheie. Daca cheia nu are aceeasi lungime precum mesajul, cheia se repeta pana cand mesajul si cheia au aceeasi lungime. Fiecare litera din mesaj se permuta cu pozitia corespunzatoare literei din cheie. Doar literele alfabetice se permuta, nu si caracterele speciale. 
+
+Implementare: 
+
+	1) Se ia primul byte din mesaj (aflat in esi), si se pune in registrul bl.
+	2) Se verifica daca byte-ul este litera din alfabet sau caracter special. Daca este caracter special, se afiseaza la ecran.
+	3) Pentru fiecare litera din alfabet se aduna pozita din alfabet a cheii.
+	4) Se ajunge la pozite scazandu-se valoarea caracterului din cheie cu valoare caracterului din mesaj. Iar aceasta valoare se aduna la mesaj.
+	5) Daca se trece de Z se ajunge la A.
+	6) Daca se trece de z se ajunge la a.
+	7) Toate operatiile de mai sus se repeta pana cand se termina lungimea mesajului.
+
+
+									StrStr
+
+Despre: 
+
+	Se cauta un sir intr-un alt sir. Daca se gaseste se returneaza sirul, daca nu se returneaza lungimea sirului + 1; 
+
+Implementare: 
+
+	1. Se compara caracter cu caracter pana cand se gaseste sirul dorit.
+	2. Daca nu se gaseste, caracterul se returneaza lungimea sirului + 1.
+
+
+
+									Binary to Hexadecimal
+
+Detalii:
+	Se transforma din binar in hexadecimal
+
+Implementare: 
+	1. Se iau siruri de cate 4 biti si se transforma in reprezentarea lor in hexadecimal.
+	2. Se repeta pasul 1 pana cand sirul binar se termina
+	3. Se afiseaza reprezentarea in hexadecimal.
